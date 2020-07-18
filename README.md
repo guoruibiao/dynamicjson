@@ -119,3 +119,33 @@ func TestDynamicJson_UpdateField2(t *testing.T) {
 	}
 }
 ```
+
+```shell script
+➜  dynamicjson git:(master) go test -v ./...
+?   	github.com/guoruibiao/dynamicjson	[no test files]
+=== RUN   TestDynamicJson_AddField
+    TestDynamicJson_AddField: dynamicjson_test.go:21: &{[]  0}
+    TestDynamicJson_AddField: dynamicjson_test.go:25: &{[通州新建村 圣馨家园 国展新座 曙光里社区 树村丽景苑] 泰戈尔🤩 25}
+    TestDynamicJson_AddField: dynamicjson_test.go:27: ================================
+    TestDynamicJson_AddField: dynamicjson_test.go:31: TestDynamicJson_AddField:  {"address":["通州新建村","圣馨家园","国展新座","曙光里社区","树村丽景苑"],"name":"泰戈尔🤩","age":25}
+--- PASS: TestDynamicJson_AddField (0.00s)
+=== RUN   TestDynamicJson_RemoveField
+    TestDynamicJson_RemoveField: dynamicjson_test.go:42: &{[]  0}
+    TestDynamicJson_RemoveField: dynamicjson_test.go:47: &{[]  0}
+    TestDynamicJson_RemoveField: dynamicjson_test.go:49: ================================
+    TestDynamicJson_RemoveField: dynamicjson_test.go:53: TestDynamicJson_RemoveField:  {"name":"泰戈尔🤩","age":25}
+--- PASS: TestDynamicJson_RemoveField (0.00s)
+=== RUN   TestDynamicJson_UpdateField
+    TestDynamicJson_UpdateField: dynamicjson_test.go:63: &{ 0 []}
+    TestDynamicJson_UpdateField: dynamicjson_test.go:73: &{ 0 []}
+    TestDynamicJson_UpdateField: dynamicjson_test.go:75: ================================
+    TestDynamicJson_UpdateField: dynamicjson_test.go:79: TestDynamicJson_UpdateField:  {"name":"泰戈尔🤩","age":25,"address":"北京市海淀区后厂村村草"}
+--- PASS: TestDynamicJson_UpdateField (0.00s)
+=== RUN   TestDynamicJson_UpdateField2
+    TestDynamicJson_UpdateField2: dynamicjson_test.go:103: {后厂村村草 25 [大连 北京]}
+    TestDynamicJson_UpdateField2: dynamicjson_test.go:105: ================================
+    TestDynamicJson_UpdateField2: dynamicjson_test.go:109: TestDynamicJson_UpdateField:  {"name":"泰戈尔🤩","age":25,"address":"北京市海淀区后厂村村草"}
+--- PASS: TestDynamicJson_UpdateField2 (0.00s)
+PASS
+ok  	github.com/guoruibiao/dynamicjson/dynamicjson	(cached)
+```
