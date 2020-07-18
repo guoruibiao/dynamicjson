@@ -1,12 +1,3 @@
-# dynamicjson
-Give the power to dynamically serialize json to Golang.
-
-go 后端输出 json时，有些时候需要对结果 json 串进行修改，单纯只是通过 omitempty 来控制
-不是万全之策，而一个比较好的方式就是做切面处理，在最终输出时进行拦截处理。
-
-## demo
-
-```go
 package dynamicjson
 
 import (
@@ -118,4 +109,3 @@ func TestDynamicJson_UpdateField2(t *testing.T) {
 		t.Log("TestDynamicJson_UpdateField: ", string(jsonBytes))
 	}
 }
-```
