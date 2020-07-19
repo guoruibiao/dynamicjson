@@ -54,6 +54,31 @@ func TestDynamicJson_RemoveField(t *testing.T) {
 	}
 }
 
+func TestDynamicJson_RemoveField2(t *testing.T) {
+	type sStruct struct {
+		Name string `json:"name"`
+		Age int `json:"age"`
+		Address []string `json:"address"`
+	}
+	s := sStruct{
+		Name: "泰戈尔🤩",
+		Age: 25,
+		Address: []string{"曼彻斯特", "也门"},
+	}
+	s2 := New().MergeStructs(s).RemoveField("Address").Build()
+	if err := json.Unmarshal([]byte(jsonTemplate), &s2); err != nil {
+		t.Error(err)
+	}else{
+		t.Log(s)
+	}
+	t.Log("================================")
+	if jsonBytes, err := json.Marshal(s2); err != nil {
+		t.Error(err)
+	}else{
+		t.Log("TestDynamicJson_RemoveField: ", string(jsonBytes))
+	}
+}
+
 func TestDynamicJson_UpdateField(t *testing.T) {
 	s := New().
 		AddField("Name", "", `json:"name,omitempty"`).
